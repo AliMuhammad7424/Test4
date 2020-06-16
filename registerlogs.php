@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 	
 	$_password = password_hash($password, PASSWORD_DEFAULT);
 	
-	require_once 'connect.php';
+	 $conn = mysql_connect("localhost","root","root","users")
 	
 	$sql ="INSERT INTO usr_tbl(name,email,password) VALUES ('$name','$email',$password)";
 	if( mysqli_query($conn, $sql) ){
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 
 		echo json_encode($result);
 		mysqi_close($conn);
-			 
+			  
 		}
 	}
 
